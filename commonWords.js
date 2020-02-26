@@ -37,8 +37,13 @@ function commonWords(first, second) {
 function commonWords(first, second) {
     const farr = first.split(',');
     const sarr = second.split(',');
-    const res = farr.filter(e1 => sarr.includes(e1));
+    const res = farr.filter(el => sarr.includes(el));
     return res.sort().toString();
+}
+
+//filter, includes, simplified (no variables) version:
+function commonWords(first, second) {
+    return second.split(',').filter(el => first.includes(el)).sort().toString();
 }
 
 console.log(commonWords("hello,world", "hello,earth"));
