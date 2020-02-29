@@ -15,10 +15,16 @@ len(sequence) == len(set(sequence))
 all(-100 < x < 100 for x in sequence)
 */
 
+//clear and simple
 function countInversion(sequence){
-    return 0;
+    let counter = 0;
+    for (let i = 0; i < sequence.length-1; i++) {
+        for (let j = i + 1; j < sequence.length; j++) {
+            if (sequence[i] > sequence[j]) counter++;
+        }
+    }
+    return counter;
 }
-
 
     console.log(countInversion([1, 2, 5, 3, 4, 7, 6])); // 3, "Example"
     console.log(countInversion([0, 1, 2, 3])); // 0, "Sorted"
