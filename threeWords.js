@@ -19,6 +19,7 @@ threeWords("bla bla bla bla") == True
 threeWords("Hi") == False
 */
 
+//for loop version
 function threeWords(data) {
     const dArr = data.split(' ');
     let c = 0;    
@@ -29,6 +30,10 @@ function threeWords(data) {
     return false;
 }
 
+//simple regex version
+function threeWords(data) {
+    return /\D+\s\D+\s\D+/.test(data);
+}
 
     console.log(threeWords("Hello World hello")); // true, "1st example"
     console.log(threeWords("He is 123 man")); // false, "2nd example"
