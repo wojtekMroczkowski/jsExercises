@@ -30,6 +30,17 @@ function threeWords(data) {
     return false;
 }
 
+//for of loop version simplified
+function threeWords(data) {
+    const dArr = data.split(' ');
+    let c = 0;  
+    for (let w of dArr) {
+        c = isNaN(w) ? c + 1 : 0;
+        if (c === 3) return true;
+    }
+    return false;
+}
+
 //simple regex version
 function threeWords(data) {
     return /\D+\s\D+\s\D+/.test(data);
