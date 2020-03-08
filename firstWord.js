@@ -22,7 +22,7 @@ Precondition: the text can contain a-z A-Z , . '
 */
 
 function firstWord(a, b) {
-    return a.match(/[a-zA-Z']+/)[0];
+    return a.match(/[a-z']+/i)[0];
 }
 
 

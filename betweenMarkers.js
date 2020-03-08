@@ -19,14 +19,20 @@ How it is used: For text parsing.
 Precondition: There can't be more than one final and one initial markers.
 */
 
+//regex version
 function betweenMarkers(text, begin, end) {
-    begin = begin.replace(/[<>*()?]/g, "\\$&");
-    end = end.replace(/[<>*()?]/g, "\\$&");
-    const exp = begin.replace('[') + '(.*)'+ escape(end); 
+    begin = begin.replace(/\[|\]/g, '\\$&');
+    end = end.replace(/\[|\]/g, '\\$&');
+    const exp = begin + '(.*)'+ end; 
     return text.match(exp)[1];
 }
 
-   // console.log(betweenMarkers('What is >apple<', '>', '<'), 'apple')
+//simple split
+function betweenMarkers(text, begin, end) {    
+    return text.split(begin)[1].split(end)[0];
+  }
+
+    console.log(betweenMarkers('What is >apple<', '>', '<'), 'apple')
     console.log(betweenMarkers('What is [apple]', '[', ']'), 'apple')
     console.log(betweenMarkers('What is ><', '>', '<'), '')
     console.log(betweenMarkers('>apple<', '>', '<'), 'apple')
