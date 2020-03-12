@@ -20,9 +20,16 @@ all(0 ≤ x < 10 ** 6 for x in data)
 */
 
 function median(data) {
-    const d = data.sort((a,b) => a-b);
+    const d = data.sort((a,b) => a - b);
     const m = Math.floor(d.length / 2);
-    return d.length % 2 > 0 ? d[m] : (d[m]+d[m-1])/2;
+    return d.length % 2 > 0 ? d[m] : (d[m] + d[m - 1]) / 2;
+}
+
+//simplified
+function median(data) {
+    data.sort((a, b) => a - b)
+    n = Math.floor(data.length / 2)
+    return (data[n] + data[data.length - 1 - n]) / 2
 }
 
     console.log(median([1, 2, 3, 4, 5]), 3, "1st example");
