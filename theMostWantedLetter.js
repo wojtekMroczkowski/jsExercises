@@ -21,12 +21,16 @@ How it is used: For most decryption tasks you need to know the frequency of occu
 */
 
 function mostWanted(data) {
-    let arr = data.toLowerCase().replace(/[^a-zA-Z]+/g, "").split('');
+    const arr = data.toLowerCase().replace(/[^a-z]+/gi, "").split('');
     const obj = {};
     arr.forEach(char => obj[char] ? obj[char] += 1 : obj[char] = 1);
-    return Object.keys(obj).reduce((a, b) => obj[a] >= obj[b] ? a : b);
+    const max = Math.max(...Object.values(obj));
+    const maxChars = [];
+    for (const prop in obj) {
+        if (obj[prop] === max) maxChars.push(prop);
+    }
+    return maxChars.sort()[0];
 }
-
 
     console.log(mostWanted("Hello World!"), "l", "1st example");
     console.log(mostWanted("How do you do?"), "o", "2nd example");
