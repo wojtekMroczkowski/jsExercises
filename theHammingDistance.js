@@ -23,3 +23,17 @@ Precondition:
 0 < n < 106
 0 < m < 106
 */
+
+function hammingDistance(n, m){
+    n = n.toString(2).split('');
+    m = m.toString(2).split('');
+    const sum = n.map( m => {
+        //tutaj muszę dodać do siebie te dwie tablice
+    });
+    return m;
+}
+
+
+    console.log(hammingDistance(117, 17), 3, "First example");
+    console.log(hammingDistance(1, 2), 2, "Second example");
+    console.log(hammingDistance(16, 15), 5, "Third example");
