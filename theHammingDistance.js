@@ -24,16 +24,25 @@ Precondition:
 0 < m < 106
 */
 
-function hammingDistance(n, m){
-    n = n.toString(2).split('');
-    m = m.toString(2).split('');
-    const sum = n.map( m => {
-        //tutaj muszę dodać do siebie te dwie tablice
-    });
-    return m;
+//simple for loop version
+function hammingDistance(a, b){
+    if (a.constructor === Array) [a, b] = a;
+    a = a.toString(2);
+    b = b.toString(2);  
+
+    const fill = "0".repeat(Math.abs(a.length - b.length));
+
+    a.length > b.length ? b = fill + b : a = fill + a;
+
+    let c = 0;
+    for(let i = 0; i < a.length; i++) {
+        if (a[i] != b[i]) c++;
+    }
+
+    return c;
 }
 
-
-    console.log(hammingDistance(117, 17), 3, "First example");
-    console.log(hammingDistance(1, 2), 2, "Second example");
-    console.log(hammingDistance(16, 15), 5, "Third example");
+    // console.log(hammingDistance(117, 17), 3, "First example");
+    // console.log(hammingDistance(1, 2), 2, "Second example");
+    // console.log(hammingDistance(16, 15), 5, "Third example");
+    console.log(hammingDistance([100000,50]), 7, "Fourth example");
