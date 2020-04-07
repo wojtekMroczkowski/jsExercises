@@ -25,7 +25,7 @@ Precondition:
 */
 
 //simple for loop version
-function hammingDistance(a, b){
+function hammingDistance([a, b]){
     if (a.constructor === Array) [a, b] = a;
     a = a.toString(2);
     b = b.toString(2);  
@@ -41,6 +41,22 @@ function hammingDistance(a, b){
 
     return c;
 }
+
+//simple bitwise XOR caret operator
+function hammingDistance([a, b]){
+    if (a.constructor === Array) [a, b] = a;
+    return ((a ^ b).toString(2).replace(/0/g,'').length);
+}
+
+//using reduce
+function hammingDistance(n, m){
+    if (n.constructor === Array) [n, m] = n;
+    return (n ^ m).toString(2).split('').reduce((a, с) => a + +с, 0);
+    
+}
+
+//using filter
+let hammingDistance = (n, m) => (n^m).toString(2).split('').filter(x=>x>0).length
 
     // console.log(hammingDistance(117, 17), 3, "First example");
     // console.log(hammingDistance(1, 2), 2, "Second example");
